@@ -82,7 +82,33 @@ public class DataFetcher {
 		}			
 		return ilist;
 	}
-	
+	public static Product getProductById(int pid) {
+		String url="jdbc:oracle:thin:@localhost:1521:xe";
+		String user="system";
+		String password="system";
+		String sql="SELECT pname,pprice FROM products WHERE pid=?";
+		Product p=null;
+		
+		try{
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection con=DriverManager.getConnection(url, user, password);
+			PreparedStatement ps=con.prepareStatement(sql);
+			ps.setInt(1, pid);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			String pname=rs.getString(1);
+			int pprice=rs.getInt(2);
+			
+			p=new Product(pid,pname,pprice);
+		}catch(Exception e){
+			System.out.println("Problem in fetching product by id");
+			e.printStackTrace();
+		}			
+		finally {
+			return p;
+		}
+	}
+
 	
 	
 }

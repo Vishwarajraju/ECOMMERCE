@@ -1,39 +1,28 @@
 package com.shopNest1.product;
 
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class Cart
- */
-public class Cart extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Cart() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+import java.util.*;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+public class Cart {
+	  private List<Product> items;
+	  
+	  public Cart() {
+	    items = new ArrayList<>();
+	  }
+	  
+	  public void addItem(Product product) {
+	    items.add(product);
+	  }
+	  
+	  public List<Product> getItems() {
+	    return items;
+	  }
+	  
+	  public double getTotal() {
+	    double total = 0.0;
+	    for (Product item : items) {
+	      total += item.getPprice();
+	    }
+	    return total;
+	  }
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
-}

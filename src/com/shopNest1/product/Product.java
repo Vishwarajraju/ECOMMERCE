@@ -1,39 +1,33 @@
 package com.shopNest1.product;
 
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class Product
- */
-public class Product extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Product() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
+public class Product {
+		int pid;
+		String pname;
+		int pprice;
+		public Product(int pid, String pname, int pprice) {
+			super();
+			this.pid = pid;
+			this.pname = pname;
+			this.pprice = pprice;
+		}
+		public int getPid() {
+			return pid;
+		}
+		public void setPid(int pid) {
+			this.pid = pid;
+		}
+		public String getPname() {
+			return pname;
+		}
+		public void setPname(String pname) {
+			this.pname = pname;
+		}
+		public int getPprice() {
+			return pprice;
+		}
+		public void setPprice(int pprice) {
+			this.pprice = pprice;
+		}
+		
 }

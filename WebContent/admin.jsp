@@ -121,19 +121,25 @@
 				  </div>
 				  <br><br>
 				  <button type="submit">Submit</button>
-				</form>
-		      	
-		      	
-   	
-		      	      	
-		    </div>
-		    
+				</form>    	
+		    </div>	    
 		  </div>
 		</div>
-		
-		
-		
-		
-		
-	</body>
+		<script type="text/javascript">
+		const buttons = document.querySelectorAll('.button-container button');
+		const tabs = document.querySelectorAll('.tab');
+
+		buttons.forEach(button => {
+		  button.addEventListener('click', () => {
+		    const tabId = button.dataset.tab;
+		    const tab = document.getElementById(tabId);
+		    tabs.forEach(tab => tab.classList.remove('active'));
+		    buttons.forEach(button => button.classList.remove('active'));
+		    tab.classList.add('active');
+		    button.classList.add('active');
+		  });
+		});
+
+		</script>
+		</body>
 </html>
